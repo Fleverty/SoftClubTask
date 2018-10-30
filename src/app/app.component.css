@@ -1,0 +1,7 @@
+.dashboard {
+  height: 100%;
+  background-color: #039be5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
