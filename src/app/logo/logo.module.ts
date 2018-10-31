@@ -1,22 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CreateFormComponent } from './create-form.component';
-import { LogoModule } from '../logo/logo.module';
+import { LogoComponent } from './logo.component';
 
 
 @NgModule({
   declarations: [
-    CreateFormComponent,
+    LogoComponent,
   ],
   exports: [
-    CreateFormComponent,
+    LogoComponent,
   ],
   imports: [
     BrowserModule,
-    LogoModule,
   ],
   providers: [],
   bootstrap: [],
 })
 
-export class CreateFormModule { }
+export class LogoModule { }

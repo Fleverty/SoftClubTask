@@ -1,0 +1,26 @@
+.content{
+  color: white;
+  font-family: "Arial";
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  /* width: 36%; */
+}
+
+.first {
+  font-size: 2em;
+  font-weight: 100;
+}
+.second {
+  font-size: 3.7em;
+  font-weight: bold;
+  line-height: 0.7em;
+}
+.third {
+  font-size: 0.8em;
+  font-weight: 100;
+  line-height: 3em;
+  text-align: right;
+  width: 14vw;
+}
