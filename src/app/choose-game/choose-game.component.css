@@ -1,0 +1,31 @@
+.dashboard {
+  height: 90vh;
+  width: 82vw;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+}
+.logo{
+  height: 11vh;
+  width: 11vw;
+  font-size: 0.8vw;
+}
+.search{
+  height: 10vh;
+  width: 100%;
+  background: yellow;
+}
+.list{
+  height: 38vh;
+  width: 100%;
+  background: lightblue;
+}
+.choose{
+  height: 18vh;
+  width: 100%;
+  background: red
+}
+.btn{
+  height: 10vh;
+  width: 100%;
+  background: purple;
+}
