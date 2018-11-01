@@ -1,0 +1,22 @@
+<div class = "form">
+  <h1>Add a new player to start the game</h1>
+  <form class="form-groups" [formGroup]="registerForm" (ngSubmit)="onSubmit()"> 
+    <div class = "form-group">
+      <label class="input-label">Nickname</label>
+      <input #nick type="text" class="form-control" formControlName="nickname" [ngClass]="{ 'is-invalid': submitted && f.nickname.errors }" />
+      <div *ngIf="submitted && f.nickname.errors" class="invalid-feedback">
+          <div *ngIf="f.nickname.errors.required">Nickname is required</div>
+          <div *ngIf="f.password.errors.maxlength">Nickname max length 20 charachters</div>
+      </div>
+    </div>
+    <div class = "form-group">
+      <label class="input-label">e-mail</label>
+      <!-- <input #email type="email" class="form-control" id="email" (blur) = "changeEmail(email.value)" ngModel email="true" > -->
+      <input #email type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+    </div>
+  <button [disabled]="loading" type="submit" class="btn-success" (click)="onSubmit()">Add</button>
+  </form>
+</div>

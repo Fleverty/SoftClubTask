@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CreateFormComponent } from './create-form.component';
 import { LogoModule } from '../logo/logo.module';
+import { AddingFormModule } from '../adding-form/adding-form.module';
+import { UserService } from '../core/user-service';
 
 
 @NgModule({
@@ -14,8 +16,9 @@ import { LogoModule } from '../logo/logo.module';
   imports: [
     BrowserModule,
     LogoModule,
+    AddingFormModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [],
 })
 
