@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, OnInit  } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { User } from '../core/user-model';
+import { User } from '../user/user-model';
 
 @Component({
   selector: 'app-adding-form',

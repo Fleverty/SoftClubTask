@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CreateFormComponent } from './create-form/create-form.component';
 import { ChooseGameComponent } from './choose-game/choose-game.component';
+import { PlayGameComponent } from './play-game/play-game.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'settings',
     component: ChooseGameComponent,
+  },
+  {
+    path: '501',
+    component: PlayGameComponent,
   }
 ];
 

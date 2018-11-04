@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateFormModule } from './create-form/create-form.module';
 import { ChooseGameModule } from './choose-game/choose-game.module';
+import { PlayGameModule } from './play-game/play-game.module';
 // import { UserModule } from './core/user.module';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { ChooseGameModule } from './choose-game/choose-game.module';
     AppRoutingModule,
     CreateFormModule,
     ChooseGameModule,
+    PlayGameModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

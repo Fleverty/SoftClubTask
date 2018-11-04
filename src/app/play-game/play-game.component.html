@@ -1,0 +1,7 @@
+<div *ngFor="let player of users">
+  {{player.nickname}}
+  <input (blur)="func($event, player, 1, 'first')"/>
+  <input (blur)="func($event, player, 1, 'second')"/>
+  <input (blur)="func($event, player, 1, 'third')"/>
+</div>
+<button (click)="makeMove()"></button>
