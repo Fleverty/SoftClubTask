@@ -4,10 +4,24 @@ import { USERS } from './user-mocks';
 
 @Injectable()
 export class UserService {
-  getUser(nickname: string): User {
-    return USERS.find((el) => el.nickname === nickname);
+  getUser(user: User): User {
+    return USERS.find((el) => {
+      if (el.nickname === user.nickname && el.email === user.email) { return true; }
+      return false;
+    });
   }
   findUser(nickname: string): Boolean {
     return USERS.findIndex((user) => user.nickname === nickname) >= 0 ? true : false;
+  }
+  login(user: User) {
+    if (this.getUser(user)) {
+      localStorage.currentUser = JSON.stringify(user);
+    } else {
+      USERS.push(user);
+      localStorage.currentUser = JSON.stringify(user);
+    }
+  }
+  getUserByNick(nickname: string) {
+    return USERS.find((el) => el.nickname === nickname);
   }
 }

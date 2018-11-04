@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../core/user-service';
 import { User } from '../core/user-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-form',
@@ -9,13 +10,12 @@ import { User } from '../core/user-model';
 })
 
 export class CreateFormComponent {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   currentUser: User;
 
   newUser(user: User) {
-    this.currentUser = user;
-    console.log(this.currentUser);
-    console.log(localStorage);
+    this.userService.login(user);
+    this.router.navigate(['settings']);
   }
 }

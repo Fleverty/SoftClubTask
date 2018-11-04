@@ -6,11 +6,15 @@ export const USERS: User[] = [
     email: 'vl1999ad@gmail.com',
   },
   {
-    nickname: 'Gantlas',
-    email: 'glifey@gmail.com',
+    nickname: 'Sherlock Holmes',
+    email: 'sherlock.holmes@gmail.com',
   },
   {
-    nickname: 'Pokla',
-    email: 'mylo@gmail.com',
+    nickname: 'Dr. John Watson',
+    email: 'dr.john.watson@gmail.com',
+  },
+  {
+    nickname: 'Jim Moriarty',
+    email: 'jim.moriarty@gmail.com',
   },
 ];

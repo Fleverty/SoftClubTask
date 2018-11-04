@@ -3,15 +3,32 @@
     <app-logo></app-logo>
   </div>
   <div class="search">
-
+    <a class="label">Select players</a>
+    <div class="input">
+      <input #nick type="text" class="input-form"  placeholder="Search"/>
+      <button type="submit" class="submit" (click)="findUser(nick.value)">New player</button>
+    </div>
   </div>
   <div class="list">
-
+    <div class="player-info" *ngFor="let player of listOfPlayers">
+      <div class="info">
+        <a class="nickname">{{player.nickname}}</a>
+        <a class="email">{{player.email}}</a>
+      </div>
+      <input type="image" class="delete" src="https://www.freeiconspng.com/uploads/blue-x-png-1.png" (click)="deletePlayer(player)" />
+    </div>
+    <div class="empty" *ngIf="listOfPlayers.length === 0" >
+      <a>Add players</a>
+    </div>
   </div>
   <div class="choose">
-
+    <a class="label">Choose game</a>
+    <div class="games">
+      <button class="first" (click)="chooseGame(501)" [ngStyle]="{'backgroundColor': style501}">501</button>
+      <button class="first" (click)="chooseGame(301)" [ngStyle]="{'backgroundColor': style301}">301</button>
+    </div>
   </div>
   <div class="btn">
-    
+    <button class="start" (click)="startGame()">Start</button>
   </div>
 </div>
