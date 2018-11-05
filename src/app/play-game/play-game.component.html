@@ -1,7 +1,18 @@
-<div *ngFor="let player of users">
-  {{player.nickname}}
-  <input (blur)="func($event, player, 1, 'first')"/>
-  <input (blur)="func($event, player, 1, 'second')"/>
-  <input (blur)="func($event, player, 1, 'third')"/>
+<div class="content">
+  <div class = "header">
+    <app-logo></app-logo>
+    <div class="winner" *ngIf="endGame">Winner: {{score.players[0]}} </div>
+    <button class="new-game">New game</button>
+  </div>
+  <div class="game">
+    <div class="move" *ngFor="let player of users">
+      <app-darts-move [player] = "player" (finalMove)="func(player, $event)"></app-darts-move>
+    </div>
+  </div>
+  <div class="button">
+    <button (click) = "makeMove()" class="make-move">Add</button>
+  </div>
+  <div class="table">
+    <app-list-game [players]="users" [games]="games" [score]='score' ></app-list-game>
+  </div>
 </div>
-<button (click)="makeMove()"></button>

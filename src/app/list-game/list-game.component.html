@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="table">
+      <div class="table-header">
+        <div class="header-item-index"><a class="index"></a></div>
+        <div class="header-item" *ngFor="let player of players">
+          <a class="player">{{player.nickname}}</a>
+          <a class="player-gold" *ngIf="winner(player.nickname)" >☺</a>
+        </div>
+      </div>
+      <div class="table-content" >	
+        <div class="table-row" *ngFor="let part of games; let i = index">		
+          <div class="table-data-index" style="background: inherit;">{{i>0 ? i: ' '}}</div>
+          <div class="table-data" *ngFor="let player of players">{{part.get(player)}}</div>
+        </div>
+      </div>	
+    </div>
+  </div>

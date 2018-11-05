@@ -7,19 +7,18 @@ import { element } from 'protractor';
 @Component({
   selector: 'app-play-game',
   templateUrl: 'play-game.component.html',
-  styles: ['play-game.component.css'],
+  styleUrls: ['play-game.component.css'],
 })
 
 export class PlayGameComponent implements OnInit {
   users: User[] = USERS;
+  click: Boolean = false;
+  games: Map<User, number>[] = [];
+  endGame: Boolean = false;
+  score: Object  = {players: [], score: 501, status: ''};
   constructor(private game501: Game501Service) {
     this.game501.makeGame(USERS);
-    // const map = new Map();
-    // USERS.forEach((el) => {
-    //   map.set(el, 23);
-    // });
-    // this.game501.makeMove(map);
-    // console.log(this.game501.getGame());
+    this.games.push(new Map(this.game501.getGame()));
   }
   dartsMove: Object = {
     first: 0,
@@ -32,21 +31,25 @@ export class PlayGameComponent implements OnInit {
     this.oneMove.set(el, Object.assign({}, this.dartsMove));
   });
   }
-  func(event: any, user: User, bonus: number, dart: string) {
-    const a = this.oneMove.get(user);
-    if (a[dart] === event.target.value * bonus) {
-      return;
-    } else {
-      a[dart] = event.target.value * bonus;
-      this.oneMove.set(user, a);
-    }
+  func(player: User, map: Map<User, Object>) {
+    this.oneMove.set(player, map.get(player));
   }
   makeMove() {
+    if (!this.endGame) {
     const move: Map<User, number> = new Map();
     this.oneMove.forEach((value, key) => {
       move.set(key, value['first'] + value['second'] + value['third']);
     });
-    this.game501.makeMove(move);
-    console.log(this.game501.getGame());
+    this.score = this.game501.makeMove(move);
+    const map: Map<User, number> = new Map(this.game501.getGame());
+    this.games.push(map);
+    if (this.games.length === 20 && this.score['players'].length === 1) {
+      this.endGame = true;
+    } else if (this.games.length === 30) {
+      this.endGame = true;
+    } else if (this.score['score'] === 0) {
+      this.endGame = true;
+    }
+    }
   }
 }

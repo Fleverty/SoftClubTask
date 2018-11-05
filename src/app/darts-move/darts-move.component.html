@@ -1,0 +1,39 @@
+<div class="move" >
+  <a class="player">{{player.nickname}} </a>
+  <div class="dart" (change) = "func(ff.value, player, f.value, 'first')">
+    <a class="number">Dart 1</a>
+    <input #ff name = "points-1" class="points" type="text"/>
+    <form #f="ngForm" class="radio-group">
+      <input type="radio" id="first-{{player.nickname}}-one" [(ngModel)]="myBonus1" name="first-{{player.nickname}}" value="1" checked>
+      <label for="first-{{player.nickname}}-one">1x</label>
+      <input type="radio" id="first-{{player.nickname}}-two" [(ngModel)]="myBonus1" name="first-{{player.nickname}}" value="2">
+      <label for="first-{{player.nickname}}-two">2x</label>
+      <input type="radio" id="first-{{player.nickname}}-three" [(ngModel)]="myBonus1" name="first-{{player.nickname}}" value="3">
+      <label for="first-{{player.nickname}}-three">3x</label>
+    </form>
+  </div>
+  <div class="dart" (change) = "func(ss.value, player, s.value, 'second')">
+    <a class="number">Dart 2</a>
+    <input #ss name = "points-2" class="points" type="text"/>
+    <form #s="ngForm" name="second-{{player.nickname}}" class="radio-group">
+      <input type="radio" id="second-{{player.nickname}}-one" [(ngModel)]="myBonus2" name="second-{{player.nickname}}" value="1" checked>
+      <label for="second-{{player.nickname}}-one">1x</label>
+      <input type="radio" id="second-{{player.nickname}}-two" [(ngModel)]="myBonus2" name="second-{{player.nickname}}" value="2">
+      <label for="second-{{player.nickname}}-two">2x</label>
+      <input type="radio" id="second-{{player.nickname}}-three" [(ngModel)]="myBonus2" name="second-{{player.nickname}}" value="3">
+      <label for="second-{{player.nickname}}-three">3x</label>
+    </form>
+  </div>
+  <div class="dart" (change) = "func(tt.value, player, t.value, 'third')">
+    <a class="number">Dart 3</a>
+    <input #tt name = "points-3" class="points" type="text"/>
+    <form #t="ngForm" class="radio-group">
+      <input type="radio" id="third-{{player.nickname}}-one" [(ngModel)]="myBonus3" name="third-{{player.nickname}}" value="1" checked>
+      <label for="third-{{player.nickname}}-one">1x</label>
+      <input type="radio" id="third-{{player.nickname}}-two" [(ngModel)]="myBonus3" name="third-{{player.nickname}}" value="2">
+      <label for="third-{{player.nickname}}-two">2x</label>
+      <input type="radio" id="third-{{player.nickname}}-three" [(ngModel)]="myBonus3" name="third-{{player.nickname}}" value="3">
+      <label for="third-{{player.nickname}}-three">3x</label>
+    </form>
+  </div>
+</div>

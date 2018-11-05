@@ -10,14 +10,35 @@ export class Game501Service {
     });
   }
   makeMove(move: Map<User, number>) {
+    const obj = {
+      players: [],
+      score: 501,
+      status: 'leader',
+    };
     this.map.forEach((value, key, map) => {
-      map.set(key, value - move.get(key));
+      if (value - move.get(key) >= 0) {
+        map.set(key, value - move.get(key));
+      }
     });
+    console.log(this.map);
+    this.map.forEach((value, key) => {
+      if (value < obj.score) {
+        console.log('<', key.nickname);
+        obj.players = new Array(key.nickname);
+        obj.score = value;
+      } else if (value === obj.score) {
+        console.log('=', key.nickname);
+        obj.players.push(key.nickname);
+      } else if (value === 0) {
+        console.log('0', key.nickname);
+        obj.players = new Array(key.nickname);
+        obj.score = value;
+        status = 'winner';
+      }
+    });
+    return obj;
   }
   getGame() {
-    // this.map.forEach( (value, key) => {
-    //   console.log(`${key.nickname}: ${value}`);
-    // });
     return this.map;
   }
 }

@@ -1,0 +1,60 @@
+.container {
+	max-width: 90%;
+	margin-right:auto;
+	margin-left:auto;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.table {
+	width:100%;
+}
+.player-gold{
+  color: gold;
+  font-size: 1.5rem;
+}
+.table-header {
+	display:flex;
+	width:100%;
+  padding:(12px * 1.5) 0;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+}
+
+.table-content{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.table-row {
+	display:flex;
+  width:100%;
+  margin-top: 4px;
+  height: 5vh;
+  line-height: 5vh;
+}
+
+.table-data-index{
+  width:5%;
+  text-align: center;
+  color: white;
+}
+.table-data  {
+	flex: 1 1 20%;
+  text-align:center;
+  background: white; 
+  color: #6c6e7b;
+}
+.header-item {
+  flex: 1 1 20%;
+  text-align:center;
+}
+.header-item-index{
+  width:5%;
+  text-align: center;
+}
