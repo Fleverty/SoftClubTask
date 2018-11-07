@@ -4,7 +4,7 @@
         <div class="header-item-index"><a class="index"></a></div>
         <div class="header-item" *ngFor="let player of players">
           <a class="player">{{player.nickname}}</a>
-          <a class="player-gold" *ngIf="winner(player.nickname)" >☺</a>
+          <a class="player-gold" *ngIf="leader(player.nickname)">☺</a>
         </div>
       </div>
       <div class="table-content" >	

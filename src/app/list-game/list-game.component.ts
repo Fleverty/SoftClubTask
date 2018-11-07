@@ -13,7 +13,7 @@ export class ListGameComponent {
   @Input() games: Map<User, number>[];
   @Input() score: Object;
 
-  winner(nickname: string) {
+  leader(nickname: string) {
     let x: Boolean = false;
     this.score['players'].forEach(element => {
       if (element === nickname) {

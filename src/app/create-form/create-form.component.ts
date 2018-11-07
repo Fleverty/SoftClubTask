@@ -12,10 +12,9 @@ import { Router } from '@angular/router';
 export class CreateFormComponent {
   constructor(private userService: UserService, private router: Router) {}
 
-  currentUser: User;
-
-  newUser(user: User) {
+  login(user: User) { // выполняется вход и переход на след. страницу
     this.userService.login(user);
     this.router.navigate(['settings']);
   }
+
 }

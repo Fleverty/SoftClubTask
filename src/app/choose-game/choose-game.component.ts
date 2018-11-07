@@ -11,21 +11,22 @@ import { Game501Service } from '../game-501/game-501.service';
 })
 
 export class ChooseGameComponent {
+
   constructor(
     private userService: UserService,
     private router: Router,
-    private game501: Game501Service) {
+    private game501: Game501Service
+  ) {
       this.listOfPlayers.push(JSON.parse(localStorage.currentUser));
-    }
+  }
 
   game: String;
   style501: String = 'white';
   style301: String = 'white';
   listOfPlayers: User[] = [];
   maxPlayers: Boolean = false;
-  value: String = '';
 
-  findUser(nick: string) {
+  findUser(nick: string) { // добавление юзера в список
     event.preventDefault();
     if (this.listOfPlayers.length === 5) {
       this.maxPlayers = true;
@@ -37,11 +38,13 @@ export class ChooseGameComponent {
     this.listOfPlayers.push(this.userService.getUserByNick(nick));
     document.querySelector('input.input-form')['value'] = '';
   }
-  deletePlayer(player: User) {
+
+  deletePlayer(player: User) { // удаление юзера
     this.listOfPlayers.splice(this.listOfPlayers.indexOf(player), 1);
     this.maxPlayers = false;
   }
-  chooseGame(game: string) {
+
+  chooseGame(game: string) { // выбор игры
     this.game = game;
     if (game === '501') {
       this.style501 = 'lightgreen';
@@ -51,9 +54,9 @@ export class ChooseGameComponent {
       this.style501 = 'white';
     }
   }
-  startGame() {
+
+  startGame() { // переход на выбранную игру
     if (this.listOfPlayers.length > 0 && this.game !== '') {
-      // this.game501.makeGame(this.listOfPlayers);
       localStorage.listOfPlayers = JSON.stringify(this.listOfPlayers);
       this.router.navigate([this.game]);
     } else {

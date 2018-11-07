@@ -10,9 +10,7 @@ export class UserService {
       return false;
     });
   }
-  findUser(nickname: string): Boolean {
-    return USERS.findIndex((user) => user.nickname === nickname) >= 0 ? true : false;
-  }
+
   login(user: User) {
     if (this.getUser(user)) {
       localStorage.currentUser = JSON.stringify(user);
@@ -22,6 +20,7 @@ export class UserService {
     }
     localStorage.game = JSON.stringify(new Map());
   }
+
   getUserByNick(nickname: string) {
     return USERS.find((el) => el.nickname === nickname);
   }

@@ -32,19 +32,18 @@ export class DartsMoveComponent implements OnInit {
     this.oneMove.set(this.player, Object.assign({}, this.dartsMove));
   }
 
-  func(event: number, user: User, bonus: number, dart: string) {
-    console.log('a');
+  func(event: number, user: User, bonus: number, dart: string) { // передача данных с инпутов
     const a = this.oneMove.get(user);
     const bonusInteger = bonus[`${dart}-${user.nickname}`];
-    this.finalMove.emit(new Map());
     a[dart] = +event * +bonusInteger;
+
     if (+bonusInteger === 2) {
       a['has2x'][dart] = true;
     } else if (+bonusInteger !== 2 && a['has2x'][dart]) {
       a['has2x'][dart] = false;
     }
+
     this.oneMove.set(user, a);
-    console.log('one move', this.oneMove);
     this.finalMove.emit(this.oneMove);
   }
 }

@@ -5,7 +5,7 @@
   <div class="search">
     <a class="label">Select players</a>
     <form class="input" (ngSubmit)="findUser(nick.value)" >
-      <input #nick type="text" class="input-form"  placeholder="Search" value="{{value}}" />
+      <input #nick type="text" class="input-form"  placeholder="Search"/>
       <button type="submit" class="submit" (click)="findUser(nick.value)">New player</button>
     </form>
   </div>

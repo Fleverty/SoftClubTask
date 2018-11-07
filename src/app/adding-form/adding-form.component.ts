@@ -9,12 +9,13 @@ import { User } from '../user/user-model';
 })
 
 export class AddingFormComponent implements OnInit {
+
   registerForm: FormGroup;
   submitted = false;
+  @Output() newUser: EventEmitter<User> = new EventEmitter();
+
   constructor(private formBuilder: FormBuilder) {}
 
-  @Output() newUser: EventEmitter<User> = new EventEmitter();
-  user: User;
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -25,14 +26,14 @@ export class AddingFormComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
 
-  onSubmit() {
+  onSubmit() { // передача данных пользователя, если всё ок
     event.stopPropagation();
     this.submitted = true;
 
     if (this.registerForm.invalid) {
       return;
     }
-    this.user = Object.assign({}, this.registerForm.value);
-    this.newUser.emit(this.user);
+
+    this.newUser.emit(Object.assign({}, this.registerForm.value));
   }
 }
