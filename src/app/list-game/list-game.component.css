@@ -29,6 +29,8 @@
   flex-direction: column-reverse;
   justify-content: flex-start;
   align-items: center;
+  /* overflow: auto;
+  max-height: 40vh; */
 }
 
 .table-row {

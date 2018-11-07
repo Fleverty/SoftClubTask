@@ -20,6 +20,7 @@ export class UserService {
       USERS.push(user);
       localStorage.currentUser = JSON.stringify(user);
     }
+    localStorage.game = JSON.stringify(new Map());
   }
   getUserByNick(nickname: string) {
     return USERS.find((el) => el.nickname === nickname);

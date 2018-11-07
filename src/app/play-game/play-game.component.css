@@ -1,6 +1,6 @@
 .content{
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -21,6 +21,11 @@ app-logo{
   margin-left: 2vw;
   margin-top: 2vh;
 }
+.winner{
+  font-size: 3vh;
+  font-weight: bold;
+  color: white;
+}
 .new-game{
   width: 15%;
   height: 40%;
@@ -34,7 +39,7 @@ app-logo{
 }
 
 .game{
-  height: 30%;
+  height: 35%;
   width: 99%;
   /* background-color: aquamarine; */
   display: flex;
@@ -66,14 +71,14 @@ app-logo{
   border-radius: 0.2em;
 }
 .table{
-  height: 50vh;
-  width: 99%;
+  max-height: 50vh;
+  min-height: 40%;
+  width: 99vw;
   margin-bottom: 5%;
   margin-top: 2%;
-  overflow: auto;
   /* background-color: yellow; */
 }
-/* app-list-game{
-  height: 100%;
-  width: 100%;
-} */
+.table-2 {
+  background-color: #039be5;
+  margin-bottom: 5vh;
+}

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { UserService } from '../user/user-service';
 import { ChooseGameComponent } from './choose-game.component';
 import { LogoModule } from '../logo/logo.module';
+import { Game501Service } from '../game-501/game-501.service';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { LogoModule } from '../logo/logo.module';
     BrowserModule,
     LogoModule,
   ],
-  providers: [UserService],
+  providers: [UserService, Game501Service],
   bootstrap: [],
 })
 

@@ -9,25 +9,6 @@ import { User } from '../user/user-model';
 })
 
 export class AddingFormComponent implements OnInit {
-
-  // @Output() nicknameChange: EventEmitter<string> = new EventEmitter();
-  // @Output() emailChange: EventEmitter<string> = new EventEmitter();
-  // nickname: String = '';
-  // email: String = '';
-
-  // changeNick(nick: string) {
-  //   if (this.nickname !== nick) {
-  //     this.nickname = nick;
-  //     this.nicknameChange.emit(nick);
-  //   }
-  // }
-  // changeEmail(email: string) {
-  //   if (this.email !== email) {
-  //     this.email = email;
-  //     this.emailChange.emit(email);
-  //   }
-  // }
-
   registerForm: FormGroup;
   submitted = false;
   constructor(private formBuilder: FormBuilder) {}
@@ -37,7 +18,7 @@ export class AddingFormComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      nickname: ['', Validators.required, Validators.maxLength(20)],
+      nickname: ['', Validators.compose([Validators.required, Validators.maxLength(20)])],
       email: ['', Validators.email]
     });
   }
@@ -45,13 +26,13 @@ export class AddingFormComponent implements OnInit {
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
+    event.stopPropagation();
     this.submitted = true;
 
     if (this.registerForm.invalid) {
       return;
     }
     this.user = Object.assign({}, this.registerForm.value);
-    console.log(this.user);
     this.newUser.emit(this.user);
   }
 }

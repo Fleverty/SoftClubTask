@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { User } from '../user/user-model';
 
 @Component({
@@ -19,6 +19,11 @@ export class DartsMoveComponent implements OnInit {
     first: 0,
     second: 0,
     third: 0,
+    has2x: {
+      first: false,
+      second: false,
+      third: false,
+    }
   }; // объект бросков
 
   oneMove: Map<User, Object> = new Map(); // мэп одного хода
@@ -28,14 +33,18 @@ export class DartsMoveComponent implements OnInit {
   }
 
   func(event: number, user: User, bonus: number, dart: string) {
+    console.log('a');
     const a = this.oneMove.get(user);
     const bonusInteger = bonus[`${dart}-${user.nickname}`];
-    if (a[dart] === +event * +bonusInteger) {
-      return;
-    } else {
-      a[dart] = +event * +bonusInteger;
-      this.oneMove.set(user, a);
+    this.finalMove.emit(new Map());
+    a[dart] = +event * +bonusInteger;
+    if (+bonusInteger === 2) {
+      a['has2x'][dart] = true;
+    } else if (+bonusInteger !== 2 && a['has2x'][dart]) {
+      a['has2x'][dart] = false;
     }
+    this.oneMove.set(user, a);
+    console.log('one move', this.oneMove);
     this.finalMove.emit(this.oneMove);
   }
 }

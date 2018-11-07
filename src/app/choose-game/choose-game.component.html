@@ -4,10 +4,10 @@
   </div>
   <div class="search">
     <a class="label">Select players</a>
-    <div class="input">
-      <input #nick type="text" class="input-form"  placeholder="Search"/>
+    <form class="input" (ngSubmit)="findUser(nick.value)" >
+      <input #nick type="text" class="input-form"  placeholder="Search" value="{{value}}" />
       <button type="submit" class="submit" (click)="findUser(nick.value)">New player</button>
-    </div>
+    </form>
   </div>
   <div class="list">
     <div class="player-info" *ngFor="let player of listOfPlayers">
@@ -17,6 +17,9 @@
       </div>
       <input type="image" class="delete" src="https://www.freeiconspng.com/uploads/blue-x-png-1.png" (click)="deletePlayer(player)" />
     </div>
+    <div class="max-players" *ngIf="maxPlayers">
+      <a>Maximum 5 players</a>
+    </div>
     <div class="empty" *ngIf="listOfPlayers.length === 0" >
       <a>Add players</a>
     </div>
@@ -24,8 +27,8 @@
   <div class="choose">
     <a class="label">Choose game</a>
     <div class="games">
-      <button class="first" (click)="chooseGame(501)" [ngStyle]="{'backgroundColor': style501}">501</button>
-      <button class="first" (click)="chooseGame(301)" [ngStyle]="{'backgroundColor': style301}">301</button>
+      <button class="first" (click)="chooseGame('501')" [ngStyle]="{'backgroundColor': style501}">501</button>
+      <button class="first" (click)="chooseGame('301')" [ngStyle]="{'backgroundColor': style301}">301</button>
     </div>
   </div>
   <div class="btn">
