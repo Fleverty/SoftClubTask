@@ -1,0 +1,81 @@
+.content{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.header{
+  height: 15%;
+  width: 100%;
+  font-size: 0.6vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 0.1vh solid #4dbcf1;
+}
+app-logo{
+  margin-left: 2vw;
+  margin-top: 2vh;
+}
+.winner{
+  font-size: 3vh;
+  font-weight: bold;
+  color: white;
+}
+.new-game{
+  width: 15%;
+  height: 40%;
+  font-size: 1.7em;
+  background-color: #ffd726;
+  color: #6d6858;
+  padding: 0;
+  border: 0;
+  border-radius: 0.2em;
+  margin-right: 2vw;
+}
+
+.game{
+  height: 35%;
+  width: 99%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.move{
+  height: 70%;
+  width: 20%;
+}
+.button{
+  height: 15%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.1vh solid #4dbcf1;
+}
+.make-move{
+  width: 25%;
+  height: 45%;
+  font-size: 1.3em;
+  background-color: #ffd726;
+  color: #6d6858;
+  padding: 0;
+  border: 0;
+  border-radius: 0.2em;
+}
+.table{
+  max-height: 50vh;
+  min-height: 40%;
+  width: 99vw;
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+.table-2 {
+  background-color: #039be5;
+  margin-bottom: 5vh;
+}

@@ -1,26 +1,25 @@
 import { Component} from '@angular/core';
-import { Game501Service } from '../game-501/game-501.service';
+import { Game301Service } from '../game-301/game-301.service';
 import { USERS } from '../user/user-mocks';
 import { User } from '../user/user-model';
-import { element } from 'protractor';
 
 @Component({
-  selector: 'app-play-game',
-  templateUrl: 'play-game.component.html',
-  styleUrls: ['play-game.component.css'],
+  selector: 'app-play-game-301',
+  templateUrl: 'play-game-301.component.html',
+  styleUrls: ['play-game-301.component.css'],
 })
 
-export class PlayGameComponent {
+export class PlayGame301Component {
   users: User[] = [];
   click: Boolean = false;
   games: Map<User, number>[] = [];
   endGame: Boolean = false;
   score: Object  = {players: [], score: 501, status: ''};
 
-  constructor(private game501: Game501Service) {
+  constructor(private game301: Game301Service) {
     this.users = JSON.parse(localStorage.listOfPlayers);
-    this.game501.makeGame(this.users);
-    this.games.push(new Map(this.game501.getGame()));
+    this.game301.makeGame(this.users);
+    this.games.push(new Map(this.game301.getGame()));
     this.users.forEach(el => {
       this.oneMove.set(el, {});
     });
@@ -34,29 +33,20 @@ export class PlayGameComponent {
 
   makeMove() { // делаем один ход
     if (!this.endGame) {
-      const move: Map<User, Object> = new Map();
+      const move: Map<User, number> = new Map();
 
       this.oneMove.forEach((value, key) => {
-        move.set(key,
-          {
-            score: value['first'] + value['second'] + value['third'],
-            has2x: value['has2x']['first'] || value['has2x']['second'] || value['has2x']['third'],
-          }
-        );
+        move.set(key, value['first'] + value['second'] + value['third']);
       });
 
-      this.score = this.game501.makeMove(move);
-      const map: Map<User, number> = new Map(this.game501.getGame());
+      this.score = this.game301.makeMove(move);
+      const map: Map<User, number> = new Map(this.game301.getGame());
       this.games.push(map);
       this.clearInputs();
 
-    if (this.games.length === 21 && this.score['players'].length === 1) {
-      this.endGame = true;
-    } else if (this.games.length === 31) {
-      this.endGame = true;
-    } else if (this.score['score'] === 0) {
-      this.endGame = true;
-    }
+      if (this.score['score'] === 301) {
+        this.endGame = true;
+      }
     }
   }
 
@@ -76,8 +66,8 @@ export class PlayGameComponent {
     this.clearInputs();
     this.endGame = false;
     this.games.length = 0;
-    this.game501.makeGame(this.users);
-    this.games.push(new Map(this.game501.getGame()));
+    this.game301.makeGame(this.users);
+    this.games.push(new Map(this.game301.getGame()));
   }
 
 }

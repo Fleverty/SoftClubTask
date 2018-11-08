@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CreateFormModule } from './create-form/create-form.module';
 import { ChooseGameModule } from './choose-game/choose-game.module';
 import { PlayGameModule } from './play-game/play-game.module';
+import { PlayGame301Module } from './play-game-301/play-game-301.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PlayGameModule } from './play-game/play-game.module';
     CreateFormModule,
     ChooseGameModule,
     PlayGameModule,
+    PlayGame301Module,
   ],
   providers: [],
   bootstrap: [AppComponent]

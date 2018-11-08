@@ -1,0 +1,22 @@
+<div class="content">
+  <div class = "header">
+    <app-logo></app-logo>
+    <div class="winner" *ngIf="endGame">Winner<a *ngIf="score.players.length > 1">s</a>: 
+      <a style="font-weight: 100;" *ngFor="let player of score.players" >{{player}} </a>
+    </div>
+    <button class="new-game" (click)="newGame()">New game</button>
+  </div>
+  <div class="game">
+    <div class="move" *ngFor="let player of users">
+      <app-darts-move [player] = "player" (finalMove)="func(player, $event)"></app-darts-move>
+    </div>
+  </div>
+  <div class="button">
+    <button (click) = "makeMove()" class="make-move">Add</button>
+  </div>
+  <div class="table">
+    <div class = "table-2">
+      <app-list-game [players]="users" [games]="games" [score]='score' ></app-list-game>
+    </div>
+  </div>
+</div>

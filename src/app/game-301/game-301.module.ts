@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Game501Service } from './game-501.service';
+import { Game301Service } from './game-301.service';
 
 @NgModule({
   imports: [
@@ -9,8 +9,9 @@ import { Game501Service } from './game-501.service';
     HttpClientModule,
   ],
   providers: [
-    Game501Service,
+    Game301Service,
   ],
   declarations: [],
 })
-export class  Game501Module { }
+
+export class Game301Module {}

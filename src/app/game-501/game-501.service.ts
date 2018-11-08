@@ -7,9 +7,7 @@ export class Game501Service {
 
   makeGame(users: User[]) { // создаём новый сеанс
     this.map = new Map();
-    users.forEach((el) => {
-      this.map.set(el, 501);
-    });
+    users.forEach((el) => this.map.set(el, 501));
   }
 
   getUsers() { // получить список игроков
