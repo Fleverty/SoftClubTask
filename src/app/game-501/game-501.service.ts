@@ -20,7 +20,6 @@ export class Game501Service {
       score: 501,
       status: 'leader',
     };
-
     this.map.forEach((value, key, map) => { // производим изменения в счёте
       if (value - move.get(key)['score'] > 0) {
         map.set(key, value - move.get(key)['score']);

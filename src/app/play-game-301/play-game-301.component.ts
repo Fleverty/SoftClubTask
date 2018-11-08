@@ -54,8 +54,11 @@ export class PlayGame301Component {
     for (let i = 0; i < 3 * this.users.length; i++) {
       document.querySelectorAll('input.points').item(i)['value'] = ``;
     }
+    const elements: HTMLCollection = document.getElementsByClassName('radio-group');
     for (let i = 0; i < 3 * this.users.length; i++) {
-      (document.getElementsByClassName('radio-group')[i] as HTMLFormElement).reset();
+      elements[i][0].checked = true;
+      elements[i][1].checked = false;
+      elements[i][2].checked = false;
     }
     this.users.forEach(el => {
       this.oneMove.set(el, {});
